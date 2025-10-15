@@ -1,0 +1,32 @@
+{
+  "context": {
+    "include": [
+      "src/**/*.ts",
+      "src/**/*.tsx",
+      "tsconfig.json",
+      "package.json",
+      ".eslintrc.*",
+      "vite.config.*",
+      ".cursor/project-context.md",
+      ".cursor/rules.md"
+    ],
+    "exclude": [
+      "node_modules/**",
+      "dist/**",
+      "coverage/**"
+    ]
+  },
+  "prompts": {
+    "path": ".cursor/prompts"
+  },
+  "settings": {
+    "default_language": "typescript",
+    "strict_typing": true,
+    "style": "clean_modern",
+    "testing_framework": "jest",
+    "ui_framework": "material-ui",
+    "state_manager": "zustand",
+    "lint_enabled": true
+  }
+}
+

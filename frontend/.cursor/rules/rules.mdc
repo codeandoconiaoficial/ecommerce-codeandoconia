@@ -1,0 +1,36 @@
+---
+alwaysApply: true
+---
+name: Dev Evolution Global Context
+description: Aplica siempre las reglas definidas en la carpeta .cursor para mantener consistencia de arquitectura, tipado, SEO, testing y estilo.
+trigger: always
+mode: append
+---
+
+# 🔧 Dev Evolution Frontend – Contexto global
+
+Antes de ejecutar cualquier acción, el agente debe **consultar y respetar** los siguientes archivos del proyecto actual:
+
+- `.cursor/project-context.md`
+- `.cursor/rules.md`
+- `.cursor/cursor.json`
+- Todos los prompts dentro de `.cursor/prompts/`
+
+El agente debe:
+1. Leer el contexto técnico y de arquitectura.
+2. Aplicar las reglas definidas sin excepción.
+3. Consultar la documentación oficial si encuentra ambigüedad.
+4. Solicitar autorización explícita del Tech Lead (Gonzalo Llantada) antes de ejecutar cambios robustos o no documentados.
+5. Validar cada entrega con:
+   - Tipado fuerte (sin `any` ni `unknown`)
+   - Lint y build sin errores
+   - Cobertura mínima de test 85%
+   - Separación lógica/render (`use{Componente}.ts`)
+   - Cumplimiento SEO + WCAG AA
+   - Reutilización en `/shared-components` y `/shared-hooks`
+   - Configuración declarativa desde `/config/`
+6. Si no puede cumplir con alguna condición, debe detenerse y pedir confirmación.
+
+El agente debe considerar **la carpeta `.cursor/` como la fuente de verdad absoluta** del proyecto y no proceder hasta haber validado todas las reglas y convenciones contenidas en ella.
+
+---
